@@ -20,6 +20,7 @@
         <activity android:name=".CaptainMarvel"></activity>
         <activity android:name=".FiveFeetApart"></activity>
         <activity android:name=".HowToTrainYourDragon"></activity>
+        <activity android:name=".Food_Drink"></activity>
     </application>
 
 </manifest>

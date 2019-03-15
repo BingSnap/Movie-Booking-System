@@ -37,7 +37,4 @@ public class MainActivity extends AppCompatActivity {
         Intent myIntent = new Intent(getBaseContext(), HowToTrainYourDragon.class);
         startActivity(myIntent);
         }
-
-
-
 }

@@ -21,6 +21,7 @@
         <activity android:name=".FiveFeetApart"></activity>
         <activity android:name=".HowToTrainYourDragon"></activity>
         <activity android:name=".Food_Drink"></activity>
+        <activity android:name=".ConfirmOrder"></activity>
     </application>
 
 </manifest>

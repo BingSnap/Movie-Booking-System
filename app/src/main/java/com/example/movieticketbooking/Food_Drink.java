@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Spinner;
+import android.widget.Button;
 
 public class Food_Drink extends AppCompatActivity {
-    TextView text;
-    Intent data;
+
     Bundle extras;
     Spinner popcornSizeDropdown, drinkSizeDropdown, popcornQuantityDropdown, drinkQuantityDropdown;
 
@@ -33,7 +33,7 @@ public class Food_Drink extends AppCompatActivity {
         drinkQuantityDropdown = findViewById(R.id.spinner3);
 
         String[] sizes = new String[]{"Small", "Medium", "Large"};
-        String[] quantity = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        String[] quantity = new String[]{"0","1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
 
         ArrayAdapter<String> sizeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, sizes);
@@ -49,21 +49,23 @@ public class Food_Drink extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
 
-        String movieTime = extras.getString("key");
+        String movieTime = extras.getString("time");
+        String movieTitle = extras.getString("title");
         String popcornSize = popcornSizeDropdown.getSelectedItem().toString();
-        String drinkSize = drinkSizeDropdown.getSelectedItem().toString();;
-        String popcornQuantity = popcornQuantityDropdown.getSelectedItem().toString();;
-        String drinkQuantity = drinkQuantityDropdown.getSelectedItem().toString();;
+        String drinkSize = drinkSizeDropdown.getSelectedItem().toString();
+        String popcornQuantity = popcornQuantityDropdown.getSelectedItem().toString();
+        String drinkQuantity = drinkQuantityDropdown.getSelectedItem().toString();
+
 
         Intent i = new Intent(Food_Drink.this, ConfirmOrder.class);
-        i.putExtra("key",movieTime);
+        i.putExtra("time",movieTime);
+        i.putExtra("title",movieTitle);
         i.putExtra("key2",popcornSize);
         i.putExtra("key3",drinkSize);
         i.putExtra("key4",popcornQuantity);
         i.putExtra("key5",drinkQuantity);
         startActivity(i);
-
-
     }
 
 }
+

@@ -10,7 +10,7 @@ public class ConfirmOrder extends AppCompatActivity {
 
     TextView popcornSize, popcornPrice, popcornQuantity;
     TextView drinkSize, drinkPrice, drinkQuantity;
-    TextView movieTitle, movieTime;
+    TextView movieTitle, movieTime, moviePrice;
     TextView subtotal, taxes, total;
 
     String movieTimeIntent, drinkSizeIntent, popcornSizeIntent, drinkQuantityIntent, popcornQuantityIntent, movieTitleIntent;
@@ -18,7 +18,7 @@ public class ConfirmOrder extends AppCompatActivity {
     Intent bundle;
 
     Double smallDrink, mediumDrink, largeDrink;
-    Double smallPopcorn, mediumPopcorn, largePopcorn;
+    Double smallPopcorn, mediumPopcorn, largePopcorn, moviePrices;
     Double d1, d2, d3, d4;
 
     @Override
@@ -55,6 +55,10 @@ public class ConfirmOrder extends AppCompatActivity {
         drinkPrice = findViewById(R.id.drinkPrice);
         drinkQuantity = findViewById(R.id.drinkQuantity);
 
+        moviePrice = findViewById(R.id.moviePrice);
+        moviePrices = 11.99;
+        moviePrice.setText(String.format("%.2f", moviePrices));
+
         movieTitle = findViewById(R.id.movieTitle);
         movieTitle.setText(movieTitleIntent);
 
@@ -63,29 +67,29 @@ public class ConfirmOrder extends AppCompatActivity {
 
         if (popcornSizeIntent.equals("Small")){
             popcornSize.setText(popcornSizeIntent);
-            popcornPrice.setText(smallPopcorn.toString());
+            popcornPrice.setText(String.format("%.2f", smallPopcorn));
             popcornQuantity.setText(popcornQuantityIntent);
         } else if (popcornSizeIntent.equals("Medium")){
             popcornSize.setText(popcornSizeIntent);
-            popcornPrice.setText(mediumPopcorn.toString());
+            popcornPrice.setText(String.format("%.2f", mediumPopcorn));
             popcornQuantity.setText(popcornQuantityIntent);
         } else if (popcornSizeIntent.equals("Large")){
             popcornSize.setText(popcornSizeIntent);
-            popcornPrice.setText(largePopcorn.toString());
+            popcornPrice.setText(String.format("%.2f", largePopcorn));
             popcornQuantity.setText(popcornQuantityIntent);
         }
 
         if (drinkSizeIntent.equals("Small")){
             drinkSize.setText(drinkSizeIntent);
-            drinkPrice.setText(smallDrink.toString());
+            drinkPrice.setText(String.format("%.2f", smallDrink));
             drinkQuantity.setText(drinkQuantityIntent);
         } else if (drinkSizeIntent.equals("Medium")){
             drinkSize.setText(drinkSizeIntent);
-            drinkPrice.setText(mediumDrink.toString());
+            drinkPrice.setText(String.format("%.2f", mediumDrink));
             drinkQuantity.setText(drinkQuantityIntent);
         } else if (drinkSizeIntent.equals("Large")){
             drinkSize.setText(drinkSizeIntent);
-            drinkPrice.setText(largeDrink.toString());
+            drinkPrice.setText(String.format("%.2f", largeDrink));
             drinkQuantity.setText(drinkQuantityIntent);
         }
 
@@ -96,7 +100,7 @@ public class ConfirmOrder extends AppCompatActivity {
         d3 = Double.parseDouble(popcornPrice.getText().toString());
         d4 = Double.parseDouble(popcornQuantity.getText().toString());
 
-        subTotal = (d1 * d2) + (d3 * d4);
+        subTotal = ((d1 * d2) + (d3 * d4)) + moviePrices;
         tax = subTotal * 0.12;
         Total = subTotal + tax;
 
@@ -120,7 +124,8 @@ public class ConfirmOrder extends AppCompatActivity {
     }
 
     public void onConfirm(View v){
-
+        Intent i = new Intent(ConfirmOrder.this, Final.class);
+        startActivity(i);
     }
 
 

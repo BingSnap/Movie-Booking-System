@@ -100,7 +100,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="CC, DESCRIPTIVE VIDEO, RESERVED SEATING"
+        android:text="CC, DESCRIPTIVE VIDEO, "
         android:textColor="@android:color/background_light"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
